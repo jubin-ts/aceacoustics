@@ -487,6 +487,17 @@
       border-radius: 12px;
       position: relative;
     }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
     .scroll-mouse::after {
       content: '';
       width: 3px;
@@ -1676,7 +1687,8 @@
             <i class="fa-solid fa-building about-icon-overlay"></i>
           </div>
           <div class="about-float-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="stat-number" data-count="15">0</div>
+            <!-- Dynamically calculated from founding year -->
+            <div class="stat-number" id="yearsCounter">0</div>
             <div class="stat-label">Years of Excellence</div>
           </div>
         </div>
@@ -1724,7 +1736,7 @@
       <div class="stats-grid">
         <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
           <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
-          <div class="stat-number" data-count="2">0</div>
+          <div class="stat-number" data-count="2" data-suffix="false">0</div>
           <div class="stat-label">Global Partners</div>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
@@ -1734,7 +1746,7 @@
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
           <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
-          <div class="stat-number" data-count="6">0</div>
+          <div class="stat-number" data-count="6" data-suffix="false">0</div>
           <div class="stat-label">GCC Countries</div>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
@@ -1973,7 +1985,7 @@
             <input type="hidden" name="_subject" value="New Inquiry — ACE Acoustics Website">
             <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off">
 
             <div class="form-row">
               <div class="form-group">
@@ -2058,7 +2070,7 @@
           <form class="newsletter-form" action="https://formsubmit.co/info@aceacoustics.com" method="POST">
             <input type="hidden" name="_subject" value="Newsletter Subscription — ACE Acoustics">
             <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off">
             <input type="email" name="email" placeholder="Your email address" required>
             <button type="submit">Subscribe</button>
           </form>
@@ -2164,6 +2176,18 @@
     });
 
     /* -------------------------------------------
+       DYNAMIC YEARS COUNTER
+       ------------------------------------------- */
+    (function() {
+      const foundingYear = 2010;
+      const years = new Date().getFullYear() - foundingYear;
+      const yearsEl = document.getElementById('yearsCounter');
+      if (yearsEl) {
+        yearsEl.setAttribute('data-count', years);
+      }
+    })();
+
+    /* -------------------------------------------
        HERO PARTICLES
        ------------------------------------------- */
     function createParticles() {
@@ -2220,7 +2244,8 @@
             if (progress < 1) {
               requestAnimationFrame(updateCounter);
             } else {
-              el.textContent = target + (target > 10 ? '+' : '');
+              const showPlus = el.getAttribute('data-suffix') !== 'false';
+              el.textContent = target + (showPlus ? '+' : '');
             }
           }
           requestAnimationFrame(updateCounter);
