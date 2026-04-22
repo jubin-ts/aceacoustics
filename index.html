@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKu8zCwADMUWNQ0DPnqydZfghQc3xVjjaRu4mYk6kVfV5I8ggAQewo5V7e5Z5A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
 /* ───────── RESET & BASE ───────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,7 +84,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
   border-bottom:1px solid var(--glass-border);padding:10px 0;
 }
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
-.nav-logo img{height:44px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;height:56px}
+.nav-logo img{height:44px;width:auto;display:block;transition:filter .3s}
 .navbar.scrolled .nav-logo img{filter:brightness(0) invert(1)}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a{
@@ -406,7 +408,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 .footer{background:#060e1a;color:rgba(255,255,255,.6);padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-brand p{font-size:.88rem;line-height:1.8;margin-top:16px;max-width:320px}
-.footer-brand img{height:36px;filter:brightness(0) invert(1)}
+.footer-brand img{height:44px;width:auto;display:block;filter:brightness(0) invert(1)}
 .footer h4{color:#fff;font-size:.95rem;margin-bottom:18px;font-family:'Inter',sans-serif;font-weight:600}
 .footer ul li{margin-bottom:10px}
 .footer ul a{font-size:.85rem;color:rgba(255,255,255,.5);transition:color .3s}
@@ -438,21 +440,95 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 .back-to-top.show{opacity:1;visibility:visible}
 .back-to-top:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,.45)}
 
+/* ───────── FLOATING CONTACT BUTTONS ───────── */
+.floating-buttons{position:fixed;bottom:100px;right:30px;display:flex;flex-direction:column;gap:12px;z-index:998}
+.floating-btn{
+  width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.2);text-decoration:none;
+  font-weight:600;
+}
+.floating-btn.whatsapp{
+  background:#25D366;color:#fff;
+}
+.floating-btn.whatsapp:hover{
+  transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,.4);
+}
+.floating-btn.call{
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+}
+.floating-btn.call:hover{
+  transform:scale(1.1);box-shadow:0 8px 24px rgba(201,168,76,.45);
+}
+@media(max-width:768px){
+  .floating-buttons{bottom:80px;right:20px}
+  .floating-btn{width:48px;height:48px;font-size:1.1rem}
+}
+
 /* ───────── MOBILE OVERLAY ───────── */
 .mobile-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;
   opacity:0;visibility:hidden;transition:all .3s;
 }
 .mobile-overlay.show{opacity:1;visibility:visible}
+
+/* ───────── LOADER ───────── */
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 20px var(--accent)) drop-shadow(0 0 40px rgba(201,168,76,.5))}50%{filter:drop-shadow(0 0 30px var(--accent)) drop-shadow(0 0 60px rgba(201,168,76,.8))}}
+@keyframes float-up{0%{transform:translateY(20px);opacity:0}50%{opacity:1}100%{transform:translateY(-20px);opacity:0}}
+.loader{
+  position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffffff,#f5f5f5);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:2000;opacity:1;visibility:visible;transition:opacity .5s,visibility .5s;
+}
+.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center;max-width:400px}
+.loader-inner{position:relative;width:280px;height:200px;margin:0 auto 40px;display:flex;align-items:center;justify-content:center}
+.loader-logo{width:200px;height:auto;animation:glow 2s ease-in-out infinite;filter:drop-shadow(0 0 20px var(--accent));position:relative;z-index:2}
+.loader-ring{
+  position:absolute;width:280px;height:280px;border:3px solid transparent;
+  border-top:3px solid var(--accent);border-right:3px solid var(--accent);
+  border-radius:50%;animation:spin 2s linear infinite;z-index:1
+}
+.loader-ring::after{
+  content:'';position:absolute;width:220px;height:220px;border:2px solid transparent;
+  border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);
+  border-radius:50%;top:26px;left:26px;animation:spin 3s linear infinite reverse;
+}
+.loader-text{font-size:1.4rem;font-weight:700;color:var(--primary);margin-bottom:12px;letter-spacing:3px;font-family:'Playfair Display',serif}
+.loader-subtitle{font-size:.9rem;color:var(--secondary);letter-spacing:1px;text-transform:uppercase;font-weight:500;margin-bottom:30px}
+.loader-dots{display:flex;justify-content:center;gap:6px}
+.loader-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:float-up 1.4s ease-in-out infinite}
+.loader-dot:nth-child(1){animation-delay:0s}
+.loader-dot:nth-child(2){animation-delay:.2s}
+.loader-dot:nth-child(3){animation-delay:.4s}
 </style>
 </head>
 <body>
+
+<!-- ════════ LOADER ════════ -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-inner">
+      <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS Logo" class="loader-logo">
+      <div class="loader-ring"></div>
+    </div>
+    <div class="loader-text">ACE ACOUSTICS®</div>
+    <div class="loader-subtitle">Premium Acoustic Solutions</div>
+    <div class="loader-dots">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ════════ NAVBAR ════════ -->
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
     <a href="#" class="nav-logo" aria-label="ACE ACOUSTICS home">
-      <img src="assets/images/logo.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
+      <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="#about" role="menuitem">About</a>
@@ -600,7 +676,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       <div class="pillar-card reveal">
         <span class="pillar-icon">🔊</span>
         <h3>Superior Acoustics</h3>
-        <p>NRC 0.85–0.9 sound absorption eliminates reverberation, creating clear and comfortable environments.</p>
+        <p>NRC 0.85– 1.0 sound absorption eliminates reverberation, creating clear and comfortable environments.</p>
       </div>
       <div class="pillar-card reveal">
         <span class="pillar-icon">🔥</span>
@@ -660,7 +736,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
             <h4>Degofon A24 — Square Lay-in</h4>
             <p>Fiberglass, Rockwool &amp; Mineral wool tiles in 600×600 and 600×1200mm formats.</p>
             <div class="product-specs">
-              <span class="product-spec">NRC 0.85</span>
+              <span class="product-spec">NRC 0.85 - 1 </span>
               <span class="product-spec">Fire A2</span>
               <span class="product-spec">RH 99%</span>
             </div>
@@ -676,7 +752,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
             <h4>Degofon E15/E24 — Tegular</h4>
             <p>Tegular edge profile in 20/25/40mm thickness for a distinctive shadow-line effect.</p>
             <div class="product-specs">
-              <span class="product-spec">NRC 0.85</span>
+              <span class="product-spec">NRC 0.85 - 1 </span>
               <span class="product-spec">Fire A2</span>
               <span class="product-spec">Tegular Edge</span>
             </div>
@@ -810,7 +886,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
             <h4>DegoSilent Ultra</h4>
             <p>3-layer panel with acoustic plaster applied on-site for a seamless monolithic finish.</p>
             <div class="product-specs">
-              <span class="product-spec">NRC 0.85–0.9</span>
+              <span class="product-spec">NRC 0.85– 1</span>
               <span class="product-spec">3-Layer</span>
             </div>
           </div>
@@ -855,7 +931,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
             <h4>DegoSilent MONO</h4>
             <p>Perforated gypsum with acoustic paper backing for clean, minimal ceiling aesthetics.</p>
             <div class="product-specs">
-              <span class="product-spec">NRC 0.75–0.85</span>
+              <span class="product-spec">NRC 0.75– 1</span>
               <span class="product-spec">Gypsum</span>
             </div>
           </div>
@@ -1279,52 +1355,51 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
           <div class="icon">✉️</div>
           <div class="detail-text">
             <strong>Email</strong>
-            <a href="mailto:info@aceacoustics.com" style="color:var(--accent)">info@aceacoustics.com</a><br>
-            <a href="mailto:tech@aceacoustics.com" style="color:rgba(255,255,255,.7)">tech@aceacoustics.com</a>
+            <a href="mailto:info@ace-acoustics.com" style="color:var(--accent)">info@ace-acoustics.com</a>
           </div>
         </div>
         <div class="contact-detail">
           <div class="icon">📞</div>
           <div class="detail-text">
-            <strong>Phone</strong>
-            <a href="tel:+971505769237" style="color:rgba(255,255,255,.7)">+971-505769237</a>
+            <strong>Call</strong>
+            <a href="tel:+971505769237" style="color:rgba(255,255,255,.7)">+971-505-769-237</a>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">🌐</div>
+          <div class="icon">💬</div>
           <div class="detail-text">
-            <strong>Website</strong>
-            aceacoustics.com
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/971505769237" style="color:rgba(255,255,255,.7)" target="_blank">+971-505-769-237</a>
           </div>
         </div>
       </div>
 
       <div class="contact-form reveal-right">
         <h3 style="font-size:1.3rem;margin-bottom:24px;color:#fff">Request a Quote</h3>
-        <form id="contactForm" aria-label="Contact form">
+        <form id="contactForm" action="https://formspree.io/f/xpwkenyj" method="POST" aria-label="Contact form">
           <div class="form-row">
             <div class="form-group">
               <label for="cf-name">Full Name</label>
-              <input type="text" id="cf-name" placeholder="Your name" required>
+              <input type="text" id="cf-name" name="full_name" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" placeholder="you@company.com" required>
+              <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="cf-phone">Phone</label>
-              <input type="tel" id="cf-phone" placeholder="+971-XXX-XXXX">
+              <input type="tel" id="cf-phone" name="phone" placeholder="+971-XXX-XXXX">
             </div>
             <div class="form-group">
               <label for="cf-company">Company</label>
-              <input type="text" id="cf-company" placeholder="Your company">
+              <input type="text" id="cf-company" name="company" placeholder="Your company">
             </div>
           </div>
           <div class="form-group">
             <label for="cf-interest">Product Interest</label>
-            <select id="cf-interest">
+            <select id="cf-interest" name="product_interest">
               <option value="">Select a product category</option>
               <option value="degofon">DEGOFON® — Modular Ceiling Tiles</option>
               <option value="degotone">DEGOTONE® — Gypsum Acoustic</option>
@@ -1337,7 +1412,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
           </div>
           <div class="form-group">
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" placeholder="Tell us about your project..." rows="4"></textarea>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." rows="4"></textarea>
           </div>
           <button type="submit" class="form-submit">Send Enquiry</button>
         </form>
@@ -1351,7 +1426,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
+        <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
         <p>The GCC's premier supplier of acoustic ceiling and wall solutions. Exclusive partner of DEGO Ceiling &amp; DAIKEN Corporation.</p>
       </div>
       <div>
@@ -1399,6 +1474,11 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 
 <!-- ════════ BACK TO TOP ════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- ════════ FLOATING CONTACT BUTTONS ════════ -->
+<div class="floating-buttons" id="floatingButtons">
+  <a href="tel:+971505769237" class="floating-btn call" aria-label="Call us" title="Call Us">📞</a>
+</div>
 
 <!-- ════════ SCRIPTS ════════ -->
 <script>
@@ -1564,16 +1644,19 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     });
   });
 
-  /* ───── CONTACT FORM (visual only) ───── */
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn = this.querySelector('.form-submit');
-    btn.textContent = 'Enquiry Sent ✓';
-    btn.style.background = '#27ae60';
+  /* ───── LOADER ───── */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
     setTimeout(function(){
-      btn.textContent = 'Send Enquiry';
-      btn.style.background = '';
-    }, 3000);
+      loader.classList.add('hidden');
+    }, 1500);
+  });
+
+  /* ───── CONTACT FORM (FORMSPREE) ───── */
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    var btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
   });
 
 })();
