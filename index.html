@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ACE ACOUSTICS® — Premium suspended ceiling, wall panel, and acoustic solutions for the GCC region. Exclusive partner of DEGO Ceiling &amp; DAIKEN Corporation.">
+<meta name="keywords" content="acoustic ceiling, wall panels, suspended ceiling, DEGO, DAIKEN, GCC, UAE, acoustic solutions">
+<title>ACE ACOUSTICS® — Acoustic Excellence for Every Space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKu8zCwADMUWNQ0DPnqydZfghQc3xVjjaRu4mYk6kVfV5I8ggAQewo5V7e5Z5A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+/* ───────── RESET & BASE ───────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:#333;background:#fff;overflow-x:hidden;line-height:1.7}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
+
+/* ───────── PALETTE VARS ───────── */
+:root{
+  --primary:#0a1628;
+  --secondary:#1a3a5c;
+  --accent:#c9a84c;
+  --accent-alt:#2196F3;
+  --white:#ffffff;
+  --light:#f5f5f5;
+  --text:#333333;
+  --glass:rgba(10,22,40,.72);
+  --glass-border:rgba(201,168,76,.18);
+  --shadow:0 8px 32px rgba(0,0,0,.12);
+  --radius:16px;
+  --transition:.35s cubic-bezier(.4,0,.2,1);
+}
+
+/* ───────── UTILITIES ───────── */
+.container{max-width:1260px;margin:0 auto;padding:0 24px}
+.section-pad{padding:100px 0}
+.text-center{text-align:center}
+.section-label{
+  display:inline-block;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;color:var(--accent);
+  margin-bottom:12px;position:relative;padding-left:36px;
+}
+.section-label::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:24px;height:2px;background:var(--accent);
+}
+.section-title{
+  font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--primary);margin-bottom:20px;
+}
+.section-title .gradient-text{
+  background:linear-gradient(135deg,var(--accent),var(--accent-alt));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-subtitle{
+  font-size:1.05rem;color:#666;max-width:680px;margin:0 auto 50px;line-height:1.8;
+}
+
+/* ───────── SCROLL ANIMATIONS ───────── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s var(--transition),transform .7s var(--transition)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .7s var(--transition),transform .7s var(--transition)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .7s var(--transition),transform .7s var(--transition)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* ───────── FLOATING ANIMATION ───────── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.floating{animation:float 3s ease-in-out infinite}
+
+/* ───────── NAVBAR ───────── */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:16px 0;transition:all .4s ease;
+}
+.navbar.scrolled{
+  background:var(--glass);backdrop-filter:blur(20px) saturate(1.8);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);
+  border-bottom:1px solid var(--glass-border);padding:10px 0;
+}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;height:56px}
+.nav-logo img{height:44px;width:auto;display:block;transition:filter .3s}
+.navbar.scrolled .nav-logo img{filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{
+  font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.5px;
+  position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+  background:var(--accent);transition:width .3s;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+  padding:10px 24px;border-radius:30px;font-weight:600;font-size:.85rem;
+  transition:transform .3s,box-shadow .3s;border:none;cursor:pointer;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,168,76,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:26px;height:2px;background:#fff;transition:all .3s;display:block;border-radius:2px}
+
+/* ───── MOBILE NAV ───── */
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:280px;height:100vh;
+    background:var(--primary);flex-direction:column;padding:80px 40px 40px;
+    gap:24px;transition:right .4s ease;box-shadow:-4px 0 30px rgba(0,0,0,.3);
+  }
+  .nav-links.open{right:0}
+  .hamburger{display:flex}
+  .nav-links a{font-size:1rem}
+}
+
+/* ───────── HERO ───────── */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('assets/images/dego/dego_p1_0.jpeg') center/cover no-repeat;
+  transform:scale(1.1);will-change:transform;
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,.82),rgba(26,58,92,.7))}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 24px}
+.hero-content h1{
+  font-size:clamp(2.4rem,5.5vw,4.2rem);color:#fff;font-weight:800;margin-bottom:20px;
+  letter-spacing:-1px;
+}
+.hero-content h1 .accent{color:var(--accent)}
+.hero-subtitle{
+  font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.8);margin-bottom:16px;
+  font-weight:300;min-height:2em;
+}
+.hero-tagline{
+  font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:40px;letter-spacing:1px;
+  font-family:'Inter',sans-serif;
+}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+  padding:16px 40px;border-radius:50px;font-weight:700;font-size:.95rem;
+  transition:all .3s;border:none;cursor:pointer;letter-spacing:.5px;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(201,168,76,.45)}
+.btn-secondary{
+  border:2px solid rgba(255,255,255,.3);color:#fff;padding:14px 38px;
+  border-radius:50px;font-weight:600;font-size:.95rem;transition:all .3s;
+  background:transparent;cursor:pointer;
+}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);background:rgba(201,168,76,.08)}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-number{
+  font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+  color:var(--accent);display:block;
+}
+.hero-stat-label{font-size:.78rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;
+  color:rgba(255,255,255,.5);font-size:.75rem;text-align:center;letter-spacing:2px;
+}
+.hero-scroll .arrow{display:block;margin:8px auto 0;width:20px;height:20px;border-right:2px solid rgba(255,255,255,.4);border-bottom:2px solid rgba(255,255,255,.4);transform:rotate(45deg);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(6px,6px)}}
+
+/* ───────── ABOUT ───────── */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-text h2{font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--primary);margin-bottom:20px}
+.about-text p{color:#555;margin-bottom:18px;line-height:1.85}
+.about-image{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.about-image img{width:100%;height:500px;object-fit:cover;transition:transform .6s}
+.about-image:hover img{transform:scale(1.04)}
+.about-image .accent-bar{
+  position:absolute;bottom:0;left:0;width:100%;height:6px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-alt));
+}
+.about-badges{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+.about-badge{
+  display:flex;align-items:center;gap:8px;background:var(--light);
+  padding:10px 18px;border-radius:30px;font-size:.82rem;font-weight:600;
+  color:var(--secondary);border:1px solid #e8e8e8;
+}
+.about-badge i{font-size:1rem;color:var(--accent);width:16px;text-align:center}
+
+/* vision / mission */
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px}
+.vm-card{
+  padding:40px;border-radius:var(--radius);position:relative;overflow:hidden;
+  border:1px solid #e8e8e8;transition:all .4s;
+}
+.vm-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--accent)}
+.vm-card h3{font-size:1.4rem;color:var(--primary);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.vm-card p{color:#555;line-height:1.85;font-size:.95rem}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .vm-grid{grid-template-columns:1fr}
+}
+
+/* ───────── PARTNERS ───────── */
+.partners{background:var(--light)}
+.partners-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.partner-card{
+  background:#fff;border-radius:var(--radius);padding:48px 40px;
+  border:1px solid #e0e0e0;transition:all .45s;position:relative;overflow:hidden;
+}
+.partner-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-alt));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s;
+}
+.partner-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.partner-card:hover::before{transform:scaleX(1)}
+.partner-card h3{font-size:1.5rem;color:var(--primary);margin-bottom:6px}
+.partner-card .partner-origin{font-size:.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.partner-card ul{padding:0}
+.partner-card li{
+  padding:8px 0;color:#555;font-size:.92rem;border-bottom:1px solid #f0f0f0;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.partner-card li::before{content:'✦';color:var(--accent);font-size:.7rem;margin-top:5px;flex-shrink:0}
+.partner-card li:last-child{border:none}
+
+@media(max-width:768px){.partners-grid{grid-template-columns:1fr}}
+
+/* ───────── PARALLAX DIVIDER ───────── */
+.parallax-divider{
+  height:400px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.parallax-divider .parallax-img{
+  position:absolute;inset:-20%;width:140%;height:140%;
+  background-size:cover;background-position:center;
+  will-change:transform;
+}
+.parallax-divider .parallax-overlay{
+  position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,.75),rgba(26,58,92,.6));
+}
+.parallax-divider .parallax-content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 24px}
+.parallax-divider .parallax-content h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:10px}
+.parallax-divider .parallax-content p{font-size:1rem;color:rgba(255,255,255,.7);max-width:600px;margin:0 auto}
+
+/* ───────── PERFORMANCE PILLARS ───────── */
+.pillars{background:var(--white)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.pillar-card{
+  background:var(--light);border-radius:var(--radius);padding:40px 30px;text-align:center;
+  transition:all .4s;border:1px solid transparent;position:relative;overflow:hidden;
+}
+.pillar-card::after{
+  content:'';position:absolute;inset:0;border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(201,168,76,.05),rgba(33,150,243,.05));
+  opacity:0;transition:opacity .4s;
+}
+.pillar-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 12px 40px rgba(201,168,76,.12)}
+.pillar-card:hover::after{opacity:1}
+.pillar-icon{font-size:2.6rem;margin-bottom:18px;display:block;position:relative;z-index:1;color:var(--accent)}
+.pillar-card h3{font-size:1.15rem;color:var(--primary);margin-bottom:10px;position:relative;z-index:1}
+.pillar-card p{font-size:.88rem;color:#666;position:relative;z-index:1;line-height:1.7}
+
+@media(max-width:768px){.pillars-grid{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-width:1024px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ───────── PRODUCT TABS (DEGO) ───────── */
+.products-dego{background:var(--light)}
+.tabs-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.tab-btn{
+  padding:12px 28px;border-radius:30px;border:2px solid #ddd;background:#fff;
+  font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:#666;
+  cursor:pointer;transition:all .3s;
+}
+.tab-btn.active,.tab-btn:hover{
+  background:var(--primary);color:#fff;border-color:var(--primary);
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.product-card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  border:1px solid #e8e8e8;transition:all .45s;position:relative;
+  perspective:800px;
+}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 16px 44px rgba(0,0,0,.1)}
+.product-card-img{
+  height:220px;overflow:hidden;position:relative;
+}
+.product-card-img img{
+  width:100%;height:100%;object-fit:cover;transition:transform .5s;
+}
+.product-card:hover .product-card-img img{transform:scale(1.08)}
+.product-card-img .img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,22,40,.6),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.product-card:hover .img-overlay{opacity:1}
+.product-card-body{padding:22px 24px}
+.product-card-body h4{font-size:1.05rem;color:var(--primary);margin-bottom:6px}
+.product-card-body .product-brand{font-size:.72rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.product-card-body p{font-size:.85rem;color:#666;line-height:1.7}
+.product-card-body .product-specs{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;
+}
+.product-spec{
+  font-size:.7rem;padding:4px 10px;border-radius:20px;background:var(--light);
+  color:var(--secondary);font-weight:600;border:1px solid #e8e8e8;
+}
+
+/* ───────── DAIKEN PRODUCTS ───────── */
+.products-daiken{background:var(--white)}
+.daiken-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+
+/* ───────── APPLICATIONS ───────── */
+.applications{background:var(--light)}
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.app-card{
+  background:#fff;border-radius:var(--radius);padding:36px 28px;text-align:center;
+  transition:all .4s;border:1px solid #e8e8e8;
+}
+.app-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--accent)}
+.app-icon{font-size:2.4rem;margin-bottom:14px;display:block;color:var(--accent)}
+.app-card h4{font-size:1.05rem;color:var(--primary);margin-bottom:8px}
+.app-card p{font-size:.85rem;color:#666;line-height:1.7}
+
+@media(max-width:768px){.app-grid{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-width:1024px){.app-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ───────── WHY CHOOSE ───────── */
+.why-choose{background:var(--primary);color:#fff}
+.why-choose .section-title{color:#fff}
+.why-choose .section-subtitle{color:rgba(255,255,255,.6)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.why-item{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:30px 24px;text-align:center;
+  transition:all .4s;
+}
+.why-item:hover{background:rgba(201,168,76,.1);border-color:var(--accent);transform:translateY(-4px)}
+.why-check{
+  width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#d4b85a);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
+  font-size:1.2rem;color:var(--primary);font-weight:700;
+}
+.why-item h4{font-size:.95rem;margin-bottom:6px}
+.why-item p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+@media(max-width:1024px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+
+/* ───────── CONTACT ───────── */
+.contact{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;position:relative;overflow:hidden;
+}
+.contact::before{
+  content:'';position:absolute;top:-50%;right:-30%;width:600px;height:600px;
+  border-radius:50%;background:rgba(201,168,76,.06);
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;z-index:1}
+.contact-info h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:24px}
+.contact-info p{color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.8}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.contact-detail .icon{
+  width:42px;height:42px;border-radius:50%;background:rgba(201,168,76,.15);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.contact-detail .detail-text{font-size:.9rem;color:rgba(255,255,255,.8)}
+.contact-detail .detail-text strong{display:block;color:#fff;margin-bottom:2px}
+.contact-form{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:40px;backdrop-filter:blur(10px);
+}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.82rem;font-weight:500;margin-bottom:6px;color:rgba(255,255,255,.7)}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:14px 18px;border:1px solid rgba(255,255,255,.15);
+  border-radius:10px;background:rgba(255,255,255,.06);color:#fff;
+  font-family:'Inter',sans-serif;font-size:.9rem;transition:border-color .3s;
+  outline:none;
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{
+  width:100%;padding:16px;border:none;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+  font-weight:700;font-size:.95rem;cursor:pointer;transition:all .3s;
+  font-family:'Inter',sans-serif;letter-spacing:.5px;
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+
+/* ───────── FOOTER ───────── */
+.footer{background:#060e1a;color:rgba(255,255,255,.6);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand p{font-size:.88rem;line-height:1.8;margin-top:16px;max-width:320px}
+.footer-brand img{height:44px;width:auto;display:block;filter:brightness(0) invert(1)}
+.footer h4{color:#fff;font-size:.95rem;margin-bottom:18px;font-family:'Inter',sans-serif;font-weight:600}
+.footer ul li{margin-bottom:10px}
+.footer ul a{font-size:.85rem;color:rgba(255,255,255,.5);transition:color .3s}
+.footer ul a:hover{color:var(--accent)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:24px 0;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.8rem}
+.footer-socials{display:flex;gap:12px}
+.footer-socials a{
+  width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  transition:all .3s;border:1px solid rgba(255,255,255,.08);
+}
+.footer-socials a:hover{background:var(--accent);color:var(--primary);border-color:var(--accent)}
+
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* ───────── COUNTER ANIMATION ───────── */
+.counter{display:inline-block}
+
+/* ───────── BACK TO TOP ───────── */
+.back-to-top{
+  position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  cursor:pointer;opacity:0;visibility:hidden;transition:all .4s;z-index:999;
+  border:none;box-shadow:0 4px 16px rgba(201,168,76,.3);
+}
+.back-to-top.show{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,.45)}
+
+/* ───────── FLOATING CONTACT BUTTONS ───────── */
+.floating-buttons{position:fixed;bottom:100px;left:30px;display:flex;flex-direction:column;gap:12px;z-index:998}
+.floating-btn{
+  width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  transition:all .3s cubic-bezier(.34,.1,.68,.55);box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none;
+  font-weight:600;animation:float-button 3s ease-in-out infinite;
+}
+.floating-btn:hover{
+  transform:translateY(-8px) scale(1.15);box-shadow:0 12px 32px rgba(0,0,0,.35);
+}
+.floating-btn.call{
+  background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
+}
+@keyframes float-button{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media(max-width:768px){
+  .floating-buttons{bottom:80px;left:20px}
+  .floating-btn{width:50px;height:50px;font-size:1.1rem}
+}
+
+/* ───────── MOBILE OVERLAY ───────── */
+.mobile-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;
+  opacity:0;visibility:hidden;transition:all .3s;
+}
+.mobile-overlay.show{opacity:1;visibility:visible}
+
+/* ───────── LOADER ───────── */
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes glow{0%{filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 20px rgba(201,168,76,.3))}50%{filter:drop-shadow(0 0 30px var(--accent)) drop-shadow(0 0 60px rgba(201,168,76,.8)) drop-shadow(0 0 100px rgba(201,168,76,.4))}100%{filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 20px rgba(201,168,76,.3))}}
+@keyframes float-up{0%{transform:translateY(20px);opacity:0}50%{opacity:1}100%{transform:translateY(-20px);opacity:0}}
+@keyframes scale-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes shimmer{0%{background-position:0 0}100%{background-position:1000px 0}}
+.loader{
+  position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffffff 0%,#f5f5f5 50%,#fafafa 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:2000;opacity:1;visibility:visible;transition:opacity .5s,visibility .5s;
+}
+.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center;max-width:400px}
+.loader-inner{position:relative;width:320px;height:240px;margin:0 auto 50px;display:flex;align-items:center;justify-content:center}
+.loader-logo{width:220px;height:auto;animation:glow 2.5s ease-in-out infinite,scale-pulse 3s ease-in-out infinite;filter:drop-shadow(0 0 20px var(--accent));position:relative;z-index:2}
+.loader-ring{
+  position:absolute;width:300px;height:300px;border:4px solid transparent;
+  border-top:4px solid var(--accent);border-right:4px solid var(--accent);
+  border-radius:50%;animation:spin 2s linear infinite;z-index:1;box-shadow:inset 0 0 40px rgba(201,168,76,.2);
+}
+.loader-ring::after{
+  content:'';position:absolute;width:240px;height:240px;border:3px solid transparent;
+  border-bottom:3px solid var(--accent);border-left:3px solid var(--accent);
+  border-radius:50%;top:28px;left:28px;animation:spin 3s linear infinite reverse;box-shadow:inset 0 0 30px rgba(201,168,76,.15);
+}
+.loader-ring::before{
+  content:'';position:absolute;width:360px;height:360px;border:2px dashed rgba(201,168,76,.3);
+  border-radius:50%;top:-30px;left:-30px;animation:spin 4s linear infinite;z-index:0;
+}
+.loader-text{font-size:1.6rem;font-weight:700;color:var(--primary);margin-bottom:12px;letter-spacing:3px;font-family:'Playfair Display',serif;animation:pulse 2s ease-in-out infinite;}
+.loader-subtitle{font-size:.95rem;color:var(--secondary);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:40px;}
+.loader-dots{display:flex;justify-content:center;gap:8px}
+.loader-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:float-up 1.4s ease-in-out infinite;box-shadow:0 0 10px rgba(201,168,76,.5);}
+.loader-dot:nth-child(1){animation-delay:0s}
+.loader-dot:nth-child(2){animation-delay:.2s}
+.loader-dot:nth-child(3){animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- ════════ LOADER ════════ -->
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-inner">
+      <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS Logo" class="loader-logo">
+      <div class="loader-ring"></div>
+    </div>
+    <div class="loader-text">ACE ACOUSTICS®</div>
+    <div class="loader-subtitle">Premium Acoustic Solutions</div>
+    <div class="loader-dots">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ NAVBAR ════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="#" class="nav-logo" aria-label="ACE ACOUSTICS home">
+      <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
+    </a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="#about" role="menuitem">About</a>
+      <a href="#partners" role="menuitem">Partners</a>
+      <a href="#dego-products" role="menuitem">DEGO</a>
+      <a href="#daiken-products" role="menuitem">DAIKEN</a>
+      <a href="#applications" role="menuitem">Markets</a>
+      <a href="#why-choose" role="menuitem">Why Us</a>
+      <a href="#contact" class="nav-cta" role="menuitem">Get in Touch</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <h1>Acoustic <span class="accent">Excellence</span><br>for Every Space</h1>
+    <p class="hero-subtitle" id="heroSubtitle" aria-live="polite"></p>
+    <p class="hero-tagline">Exclusive GCC Partner of DEGO Ceiling &amp; DAIKEN Corporation</p>
+    <div class="hero-buttons">
+      <a href="#dego-products" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-secondary">Request a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat floating" style="animation-delay:0s">
+        <span class="hero-stat-number counter" data-target="20" data-suffix="+">0</span>
+        <span class="hero-stat-label">Years Mfg.</span>
+      </div>
+      <div class="hero-stat floating" style="animation-delay:.4s">
+        <span class="hero-stat-number counter" data-target="25" data-suffix="+">0</span>
+        <span class="hero-stat-label">Countries</span>
+      </div>
+      <div class="hero-stat floating" style="animation-delay:.8s">
+        <span class="hero-stat-number counter" data-target="15" data-suffix="-Yr">0</span>
+        <span class="hero-stat-label">Warranty</span>
+      </div>
+      <div class="hero-stat floating" style="animation-delay:1.2s">
+        <span class="hero-stat-number" style="font-size:1.5rem;line-height:2.4rem">Class A</span>
+        <span class="hero-stat-label">Fire Rated</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    SCROLL<span class="arrow"></span>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <span class="section-label">About Us</span>
+        <h2>The GCC's Premier <span class="gradient-text">Acoustic Solutions</span> Partner</h2>
+        <p>With a continuously expanding product portfolio, Acemacan offers the widest range of market-leading suspended ceiling, wall panel, and acoustic solutions available in the region. Every product is selected and supplied with the dual objective of superior acoustic performance and outstanding interior aesthetics.</p>
+        <p>Acemacan FZ LLC is the exclusive authorised partner of both <strong>DEGO Ceiling</strong> and <strong>DAIKEN Corporation</strong> in the GCC Region, operating under the <strong>ACE ACOUSTICS®</strong> brand.</p>
+        <div class="about-badges">
+          <div class="about-badge"><i class="fa-solid fa-industry"></i> 20+ Years Manufacturing</div>
+          <div class="about-badge"><i class="fa-solid fa-fire"></i> Class A Fire Rated</div>
+          <div class="about-badge"><i class="fa-solid fa-palette"></i> Full Customisation</div>
+        </div>
+      </div>
+      <div class="about-image reveal-right">
+        <img src="assets/images/dego/dego_p2_0.jpeg" alt="Premium acoustic ceiling installation by ACE Acoustics" loading="lazy" width="600" height="500">
+        <div class="accent-bar"></div>
+      </div>
+    </div>
+
+    <div class="vm-grid">
+      <div class="vm-card reveal">
+        <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
+        <p>To be the leading supplier of acoustic ceiling and wall solutions in the GCC — delivering world-class quality, innovation, and sustainability in every interior environment we serve.</p>
+      </div>
+      <div class="vm-card reveal">
+        <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
+        <p>To provide architects, interior designers, contractors, and building owners with the right acoustic solution for every space — combining cutting-edge technology, Class A fire safety, superior sound absorption, and full customisation, backed by exceptional technical support and end-to-end project management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PARTNERS ════════ -->
+<section class="partners section-pad" id="partners">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Strategic Partners</span>
+      <h2 class="section-title">Our <span class="gradient-text">Exclusive Partnerships</span></h2>
+      <p class="section-subtitle">Bringing together the finest acoustic manufacturers from China and Japan to deliver unmatched ceiling and wall solutions across the GCC.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card reveal-left">
+        <h3>DEGO Ceiling</h3>
+        <p class="partner-origin">🇨🇳 China</p>
+        <ul>
+          <li>Largest fiberglass wool ceiling manufacturer in China</li>
+          <li>20+ years production experience, multiple patents</li>
+          <li>Products exported to 25+ countries worldwide</li>
+          <li>ISO 9001 &amp; ISO 14001 certified operations</li>
+          <li>Class A1/A2 fire rated system solutions</li>
+          <li>Full suspended ceiling ecosystem with 4 product brands</li>
+        </ul>
+      </div>
+      <div class="partner-card reveal-right">
+        <h3>DAIKEN Corporation</h3>
+        <p class="partner-origin">🇯🇵 Japan</p>
+        <ul>
+          <li>40+ years acoustic R&amp;D expertise</li>
+          <li>New 2024 acoustic experiment facility in Okayama</li>
+          <li>Full-range: ceiling, wall, door &amp; flooring systems</li>
+          <li>Dedicated acoustic environment design division</li>
+          <li>Japanese engineering precision &amp; reliability</li>
+          <li>Trusted in offices, schools, healthcare &amp; public buildings</li>
+          <li>Founded 1945, listed on Osaka / Nikkei Stock Exchange</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PARALLAX DIVIDER 1 ════════ -->
+<section class="parallax-divider" aria-hidden="true">
+  <div class="parallax-img" style="background-image:url('assets/images/daiken/daiken_p7_0.jpeg')"></div>
+  <div class="parallax-overlay"></div>
+  <div class="parallax-content">
+    <h2>Engineered for <span style="color:var(--accent)">Performance</span></h2>
+    <p>Every product combines science, aesthetics, and sustainability.</p>
+  </div>
+</section>
+
+<!-- ════════ PERFORMANCE PILLARS ════════ -->
+<section class="pillars section-pad" id="pillars">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Performance</span>
+      <h2 class="section-title">Six Pillars of <span class="gradient-text">Excellence</span></h2>
+      <p class="section-subtitle">Every product in our portfolio is engineered to meet the highest standards across six critical performance dimensions.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-volume-high"></i></span>
+        <h3>Superior Acoustics</h3>
+        <p>NRC 0.85– 1.0 sound absorption eliminates reverberation, creating clear and comfortable environments.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-fire"></i></span>
+        <h3>Fire Rated Class A</h3>
+        <p>All products achieve A1–A2 fire classification, meeting the most stringent building safety codes.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-droplet"></i></span>
+        <h3>Moisture Resistance</h3>
+        <p>100% relative humidity stable. Install confidently in environments from 0°C to 40°C.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-palette"></i></span>
+        <h3>High Customisation</h3>
+        <p>Any shape, size, colour, and texture — tailored to your architectural vision.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-seedling"></i></span>
+        <h3>Wellbeing &amp; Health</h3>
+        <p>VOC-free, bacteria-resistant, mould-proof materials for healthier indoor environments.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-recycle"></i></span>
+        <h3>Sustainability</h3>
+        <p>High recycled content and fully recyclable products supporting green building certifications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DEGO PRODUCTS ════════ -->
+<section class="products-dego section-pad" id="dego-products">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">DEGO Ceiling Products</span>
+      <h2 class="section-title">The Complete <span class="gradient-text">DEGO</span> Portfolio</h2>
+      <p class="section-subtitle">Four specialised brands covering every acoustic ceiling, wall, and design need — from modular tiles to seamless plaster finishes.</p>
+    </div>
+
+    <div class="tabs-nav reveal" role="tablist" aria-label="DEGO product categories">
+      <button class="tab-btn active" data-tab="degofon" role="tab" aria-selected="true" aria-controls="panel-degofon">DEGOFON®</button>
+      <button class="tab-btn" data-tab="degotone" role="tab" aria-selected="false" aria-controls="panel-degotone">DEGOTONE®</button>
+      <button class="tab-btn" data-tab="degosilent" role="tab" aria-selected="false" aria-controls="panel-degosilent">DEGOSILENT®</button>
+      <button class="tab-btn" data-tab="decoacoustic" role="tab" aria-selected="false" aria-controls="panel-decoacoustic">DECOACOUSTIC®</button>
+    </div>
+
+    <!-- DEGOFON -->
+    <div class="tab-panel active" id="panel-degofon" role="tabpanel">
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p7_0.jpeg" alt="Degofon A24 Square Lay-in ceiling tiles" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degofon®</span>
+            <h4>Degofon A24 — Square Lay-in</h4>
+            <p>Fiberglass, Rockwool &amp; Mineral wool tiles in 600×600 and 600×1200mm formats.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85 - 1 </span>
+              <span class="product-spec">Fire A2</span>
+              <span class="product-spec">RH 99%</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p8_1.jpeg" alt="Degofon E15/E24 Tegular edge ceiling tiles" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degofon®</span>
+            <h4>Degofon E15/E24 — Tegular</h4>
+            <p>Tegular edge profile in 20/25/40mm thickness for a distinctive shadow-line effect.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85 - 1 </span>
+              <span class="product-spec">Fire A2</span>
+              <span class="product-spec">Tegular Edge</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p10_4.jpeg" alt="Degofon D24 Full Concealed ceiling system" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degofon®</span>
+            <h4>Degofon D24 — Full Concealed</h4>
+            <p>Concealed edge system delivering a seamless, invisible grid appearance.</p>
+            <div class="product-specs">
+              <span class="product-spec">Concealed Grid</span>
+              <span class="product-spec">Fire A2</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p11_0.jpeg" alt="Degofon K2C2 Semi-Concealed ceiling system" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degofon®</span>
+            <h4>Degofon K2C2 — Semi-Concealed</h4>
+            <p>Semi-concealed edge system combining aesthetic appeal with easy maintenance access.</p>
+            <div class="product-specs">
+              <span class="product-spec">Semi-Concealed</span>
+              <span class="product-spec">Fire A2</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p13_0.jpeg" alt="Degofon Black acoustic ceiling tiles" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degofon®</span>
+            <h4>Degofon Black</h4>
+            <p>Black smooth texture with low-reflective 4% finish — ideal for theatres, clubs &amp; showrooms.</p>
+            <div class="product-specs">
+              <span class="product-spec">4% Reflective</span>
+              <span class="product-spec">Black Finish</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEGOTONE -->
+    <div class="tab-panel" id="panel-degotone" role="tabpanel">
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p15_0.jpeg" alt="Degotone Galaxy perforated gypsum tile" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degotone®</span>
+            <h4>Degotone Galaxy</h4>
+            <p>Perforated gypsum tile with superior acoustic performance and elegant aesthetics.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.55</span>
+              <span class="product-spec">A2-s1,d0</span>
+              <span class="product-spec">RH 70%</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p16_0.jpeg" alt="Degotone Seamless continuous finish ceiling" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degotone®</span>
+            <h4>Degotone Seamless</h4>
+            <p>Edge-to-edge continuous finish with up to 23% perforation for optimal sound control.</p>
+            <div class="product-specs">
+              <span class="product-spec">Seamless</span>
+              <span class="product-spec">23% Perf.</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p17_0.jpeg" alt="Degotone BIG large format perforated boards" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degotone®</span>
+            <h4>Degotone BIG</h4>
+            <p>Large 1200×2400mm perforated boards for expansive, uninterrupted ceiling surfaces.</p>
+            <div class="product-specs">
+              <span class="product-spec">1200×2400mm</span>
+              <span class="product-spec">Large Format</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p20_1.jpeg" alt="Degotone WALL Face+ decorative gypsum panels" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Degotone®</span>
+            <h4>Degotone WALL (Face+)</h4>
+            <p>Decorative gypsum wall panels available in fabric, PVC, wood &amp; aluminium finishes.</p>
+            <div class="product-specs">
+              <span class="product-spec">Wall Panel</span>
+              <span class="product-spec">Multi-Finish</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEGOSILENT -->
+    <div class="tab-panel" id="panel-degosilent" role="tabpanel">
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p23_1.jpeg" alt="DegoSilent Ultra acoustic plaster system" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">DegoSilent®</span>
+            <h4>DegoSilent Ultra</h4>
+            <p>3-layer panel with acoustic plaster applied on-site for a seamless monolithic finish.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85– 1</span>
+              <span class="product-spec">3-Layer</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p24_0.jpeg" alt="DegoSilent Plus+ recycled plaster system" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">DegoSilent®</span>
+            <h4>DegoSilent Plus+</h4>
+            <p>Recycled perlite &amp; cellulose plaster — sustainable choice with excellent absorption.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.75–1.05</span>
+              <span class="product-spec">Recycled</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p25_0.jpeg" alt="DegoSilent Pro rigid panel system" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">DegoSilent®</span>
+            <h4>DegoSilent Pro</h4>
+            <p>Rigid zirconium oxide glass-bead panel for demanding acoustic environments.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85</span>
+              <span class="product-spec">Rigid Panel</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p25_1.jpeg" alt="DegoSilent MONO perforated gypsum ceiling" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">DegoSilent®</span>
+            <h4>DegoSilent MONO</h4>
+            <p>Perforated gypsum with acoustic paper backing for clean, minimal ceiling aesthetics.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.75– 1</span>
+              <span class="product-spec">Gypsum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DECOACOUSTIC -->
+    <div class="tab-panel" id="panel-decoacoustic" role="tabpanel">
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p14_0.jpeg" alt="Decoacoustic Square and Rectangle Clouds" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Decoacoustic®</span>
+            <h4>Square / Rectangle Clouds</h4>
+            <p>Free-hanging acoustic panels delivering open-plan sound absorption with visual elegance.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85</span>
+              <span class="product-spec">Fire A2</span>
+              <span class="product-spec">Free-Hang</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p16_0.jpeg" alt="Decoacoustic Circle Clouds" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Decoacoustic®</span>
+            <h4>Circle Clouds</h4>
+            <p>Innovative frameless circular acoustical panels, Ø800–Ø1600mm, for dynamic ceiling landscapes.</p>
+            <div class="product-specs">
+              <span class="product-spec">Frameless</span>
+              <span class="product-spec">Ø800–1600mm</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p17_0.jpeg" alt="Decoacoustic Hexagon Clouds" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Decoacoustic®</span>
+            <h4>Hexagon Clouds</h4>
+            <p>Geometric hexagonal shapes creating striking patterns with NRC 0.85 absorption.</p>
+            <div class="product-specs">
+              <span class="product-spec">NRC 0.85</span>
+              <span class="product-spec">Hexagonal</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p19_0.jpeg" alt="Decoacoustic Acoustic Baffles" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Decoacoustic®</span>
+            <h4>Acoustic Baffles</h4>
+            <p>Rectangle, strip &amp; wave profiles in 30/40/50mm fiberglass wool for open ceilings.</p>
+            <div class="product-specs">
+              <span class="product-spec">Fiberglass</span>
+              <span class="product-spec">Multiple Profiles</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="assets/images/dego/dego_p28_0.jpeg" alt="Decoacoustic Fabric Wrap Wall Panels" loading="lazy" width="400" height="300">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brand">Decoacoustic®</span>
+            <h4>Fabric Wrap Wall Panels</h4>
+            <p>Fiberglass wool core wrapped in Class A/B fire-resistant fabric for wall-mounted acoustics.</p>
+            <div class="product-specs">
+              <span class="product-spec">Wall Mount</span>
+              <span class="product-spec">Fire A/B Fabric</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PARALLAX DIVIDER 2 ════════ -->
+<section class="parallax-divider" aria-hidden="true">
+  <div class="parallax-img" style="background-image:url('assets/images/dego/dego_p34_0.jpeg')"></div>
+  <div class="parallax-overlay"></div>
+  <div class="parallax-content">
+    <h2>Japanese Precision Meets <span style="color:var(--accent)">Innovation</span></h2>
+    <p>DAIKEN — 40+ years of acoustic research and engineering excellence.</p>
+  </div>
+</section>
+
+<!-- ════════ DAIKEN PRODUCTS ════════ -->
+<section class="products-daiken section-pad" id="daiken-products">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">DAIKEN Corporation Products</span>
+      <h2 class="section-title">The <span class="gradient-text">EXCELTONE</span> Series &amp; Beyond</h2>
+      <p class="section-subtitle">Precision-engineered mineral fiber ceilings and acoustic wall systems from Japan — trusted worldwide for over four decades.</p>
+    </div>
+
+    <div class="daiken-grid">
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p10_0.jpeg" alt="EXCELTONE MS Smooth mineral fiber ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MS — Smooth</h4>
+          <p>Smooth monolithic white face, NRC 0.70, RH99 — Made in Japan.</p>
+          <div class="product-specs">
+            <span class="product-spec">NRC 0.70</span>
+            <span class="product-spec">RH 99%</span>
+            <span class="product-spec">Japan</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p14_0.jpeg" alt="EXCELTONE MC Constellation ceiling design" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MC — Constellation</h4>
+          <p>Random pin perforated design offering NRC 0.46–0.70 for versatile applications.</p>
+          <div class="product-specs">
+            <span class="product-spec">NRC 0.46–0.70</span>
+            <span class="product-spec">Pin Perforated</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p16_0.jpeg" alt="EXCELTONE MD Travertine-Delica ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MD — Travertine-Delica</h4>
+          <p>Unique fissure pattern — an economical all-purpose ceiling solution.</p>
+          <div class="product-specs">
+            <span class="product-spec">Fissured</span>
+            <span class="product-spec">Economical</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p18_0.jpeg" alt="EXCELTONE MN New NDF non-directional fissured" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MN — New NDF</h4>
+          <p>Non-directional fissured surface with NRC 0.55 and CAC 32 sound blocking.</p>
+          <div class="product-specs">
+            <span class="product-spec">NRC 0.55</span>
+            <span class="product-spec">CAC 32</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p20_0.jpeg" alt="EXCELTONE MA Astral non-perforated ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MA — Astral</h4>
+          <p>Non-perforated acoustical ceiling for spaces requiring clean, smooth surfaces.</p>
+          <div class="product-specs">
+            <span class="product-spec">Non-Perforated</span>
+            <span class="product-spec">Acoustical</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p22_0.jpeg" alt="EXCELTONE MQV-1 Moondust ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MQV-1 — Moondust</h4>
+          <p>Mixed medium/micro pin holes with premium Japanese latex paint finish.</p>
+          <div class="product-specs">
+            <span class="product-spec">Micro Pinhole</span>
+            <span class="product-spec">Latex Paint</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p26_0.jpeg" alt="EXCELTONE MV New Venus B-pin ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MV — New Venus B-pin</h4>
+          <p>Stipple texture with scattered micro pinhole finish for refined aesthetics.</p>
+          <div class="product-specs">
+            <span class="product-spec">Stipple Texture</span>
+            <span class="product-spec">Micro Pinhole</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p30_0.jpeg" alt="EXCELTONE MP Plain smooth white ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE MR</span>
+          <h4>MP — Plain</h4>
+          <p>Non-fissured, smooth white painted surface for minimalist ceiling design.</p>
+          <div class="product-specs">
+            <span class="product-spec">Smooth</span>
+            <span class="product-spec">White Painted</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p34_0.jpeg" alt="EXCELTONE DL Series double layer ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE DL</span>
+          <h4>DL Series — Double Layer</h4>
+          <p>Tongue &amp; groove direct fix to gypsum board or battens — no exposed grid, paintable.</p>
+          <div class="product-specs">
+            <span class="product-spec">Direct Fix</span>
+            <span class="product-spec">No Grid</span>
+            <span class="product-spec">Paintable</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p36_0.jpeg" alt="EXCELTONE Metallic Colour Ceilings" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">EXCELTONE</span>
+          <h4>Metallic / Colour Ceilings</h4>
+          <p>30 original factory-painted colours for EXCELTONE, enabling vibrant ceiling design.</p>
+          <div class="product-specs">
+            <span class="product-spec">30 Colours</span>
+            <span class="product-spec">Factory Painted</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p44_0.jpeg" alt="Daiken Ototen Acoustic Ceiling" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">DAIKEN</span>
+          <h4>Ototen Acoustic Ceiling</h4>
+          <p>Advanced acoustic ceiling solution combining Japanese engineering with modern aesthetics.</p>
+          <div class="product-specs">
+            <span class="product-spec">Advanced</span>
+            <span class="product-spec">Japan</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="assets/images/daiken/daiken_p48_0.jpeg" alt="Daiken Otokabe Acoustic Wall Panels" loading="lazy" width="400" height="300">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="product-card-body">
+          <span class="product-brand">DAIKEN</span>
+          <h4>Otokabe Acoustic Wall Panels</h4>
+          <p>Wall-mounted acoustic panel solution designed for optimal sound management.</p>
+          <div class="product-specs">
+            <span class="product-spec">Wall Panel</span>
+            <span class="product-spec">Acoustic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PARALLAX DIVIDER 3 ════════ -->
+<section class="parallax-divider" aria-hidden="true">
+  <div class="parallax-img" style="background-image:url('assets/images/daiken/daiken_p65_0.jpeg')"></div>
+  <div class="parallax-overlay"></div>
+  <div class="parallax-content">
+    <h2>Trusted Across <span style="color:var(--accent)">25+ Countries</span></h2>
+    <p>From commercial offices to performing arts venues — proven acoustic solutions worldwide.</p>
+  </div>
+</section>
+
+<!-- ════════ APPLICATIONS ════════ -->
+<section class="applications section-pad" id="applications">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Target Markets</span>
+      <h2 class="section-title">Acoustic Solutions for <span class="gradient-text">Every Sector</span></h2>
+      <p class="section-subtitle">Our products serve diverse environments where acoustic comfort, fire safety, and aesthetic excellence are non-negotiable.</p>
+    </div>
+    <div class="app-grid">
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-building"></i></span>
+        <h4>Commercial Offices</h4>
+        <p>Open-plan and private offices requiring speech privacy, noise control, and professional aesthetics.</p>
+      </div>
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        <h4>Education Facilities</h4>
+        <p>Classrooms, lecture halls, and libraries where clear communication and focus are essential.</p>
+      </div>
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-hospital"></i></span>
+        <h4>Healthcare</h4>
+        <p>Hospitals, clinics, and wellness centres demanding hygiene, quiet, and patient comfort.</p>
+      </div>
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-concierge-bell"></i></span>
+        <h4>Retail &amp; Hospitality</h4>
+        <p>Hotels, restaurants, and retail spaces where ambience and guest experience are paramount.</p>
+      </div>
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-masks-theater"></i></span>
+        <h4>Performing Arts / AV</h4>
+        <p>Theatres, studios, and auditoriums requiring precision acoustic design and superior sound quality.</p>
+      </div>
+      <div class="app-card reveal">
+        <span class="app-icon"><i class="fa-solid fa-landmark"></i></span>
+        <h4>Government &amp; Public</h4>
+        <p>Government buildings, transport hubs, and public facilities meeting strict fire and safety codes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WHY CHOOSE US ════════ -->
+<section class="why-choose section-pad" id="why-choose">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label" style="color:var(--accent)">Why Acemacan</span>
+      <h2 class="section-title" style="color:#fff">Why Choose <span class="gradient-text">ACE ACOUSTICS®</span></h2>
+      <p class="section-subtitle">Eight compelling reasons architects, contractors, and building owners trust us with their acoustic environments.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-handshake"></i></div>
+        <h4>Dual GCC Partnerships</h4>
+        <p>Exclusive authorised partner of both DEGO Ceiling &amp; DAIKEN Corporation.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-hourglass-end"></i></div>
+        <h4>40+ Years Combined Mfg.</h4>
+        <p>Backed by decades of proven manufacturing expertise from two world-class factories.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-fire"></i></div>
+        <h4>Class A Fire Safety</h4>
+        <p>Every product achieves A1/A2 fire classification for maximum occupant protection.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-cube"></i></div>
+        <h4>Full Solution Provider</h4>
+        <p>From ceiling tiles to baffles, clouds, walls, and plaster — one partner for everything.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-chart-line"></i></div>
+        <h4>Project Management</h4>
+        <p>End-to-end technical support from specification through to installation and handover.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-shield"></i></div>
+        <h4>15-Year Warranty</h4>
+        <p>Industry-leading warranty demonstrating confidence in our product quality and durability.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-globe"></i></div>
+        <h4>Global Track Record</h4>
+        <p>Products installed across 25+ countries with consistent performance and satisfaction.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-check"><i class="fa-solid fa-leaf"></i></div>
+        <h4>Sustainability Commitment</h4>
+        <p>Recycled materials, recyclable products, and green building certification support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <span class="section-label" style="color:var(--accent)">Contact Us</span>
+        <h2>Let's Build Something <span style="color:var(--accent)">Extraordinary</span></h2>
+        <p>Whether you need a single-room acoustic solution or a full-building specification, our team is ready to help.</p>
+
+        <div class="contact-detail">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="detail-text">
+            <strong>Location</strong>
+            FDBC3036, COMPAS Building, Al Shohada Road,<br>Ras Al Khaimah, UAE
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="detail-text">
+            <strong>Email</strong>
+            <a href="mailto:info@ace-acoustics.com" style="color:var(--accent)">info@ace-acoustics.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="detail-text">
+            <strong>Call</strong>
+            <a href="tel:+971505769237" style="color:rgba(255,255,255,.7)">+971-505-769-237</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="detail-text">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/971505769237" style="color:rgba(255,255,255,.7)" target="_blank">+971-505-769-237</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <h3 style="font-size:1.3rem;margin-bottom:24px;color:#fff">Request a Quote</h3>
+        <form id="contactForm" action="https://formspree.io/f/xpwkenyj" method="POST" aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" name="full_name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-phone">Phone</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+971-XXX-XXXX">
+            </div>
+            <div class="form-group">
+              <label for="cf-company">Company</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your company">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-interest">Product Interest</label>
+            <select id="cf-interest" name="product_interest">
+              <option value="">Select a product category</option>
+              <option value="degofon">DEGOFON® — Modular Ceiling Tiles</option>
+              <option value="degotone">DEGOTONE® — Gypsum Acoustic</option>
+              <option value="degosilent">DEGOSILENT® — Acoustic Plaster</option>
+              <option value="decoacoustic">DECOACOUSTIC® — Clouds &amp; Baffles</option>
+              <option value="exceltone">EXCELTONE — DAIKEN Mineral Fiber</option>
+              <option value="ototen">Ototen / Otokabe — DAIKEN</option>
+              <option value="other">Other / General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS® Logo" width="565" height="118">
+        <p>The GCC's premier supplier of acoustic ceiling and wall solutions. Exclusive partner of DEGO Ceiling &amp; DAIKEN Corporation.</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#dego-products">DEGOFON® Tiles</a></li>
+          <li><a href="#dego-products">DEGOTONE® Gypsum</a></li>
+          <li><a href="#dego-products">DEGOSILENT® Plaster</a></li>
+          <li><a href="#dego-products">DECOACOUSTIC® Clouds</a></li>
+          <li><a href="#daiken-products">EXCELTONE Series</a></li>
+          <li><a href="#daiken-products">Ototen &amp; Otokabe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#pillars">Performance</a></li>
+          <li><a href="#applications">Markets</a></li>
+          <li><a href="#why-choose">Why Choose Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@aceacoustics.com">info@aceacoustics.com</a></li>
+          <li><a href="mailto:tech@aceacoustics.com">tech@aceacoustics.com</a></li>
+          <li><a href="tel:+971505769237">+971-505769237</a></li>
+          <li>Ras Al Khaimah, UAE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ACEMACAN FZ LLC — ACE ACOUSTICS®. All rights reserved.</p>
+      <div class="footer-socials" aria-label="Social media links">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="mailto:info@aceacoustics.com" aria-label="Email" title="Email us"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ BACK TO TOP ════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- ════════ FLOATING CONTACT BUTTONS ════════ -->
+<div class="floating-buttons" id="floatingButtons">
+  <a href="tel:+971505769237" class="floating-btn call" aria-label="Call us" title="Call +971-505-769-237"><i class="fa-solid fa-phone"></i></a>
+</div>
+
+<!-- ════════ SCRIPTS ════════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ───── NAVBAR SCROLL ───── */
+  var navbar = document.getElementById('navbar');
+  var backToTop = document.getElementById('backToTop');
+  var heroBg = document.getElementById('heroBg');
+  var lastScroll = 0;
+
+  window.addEventListener('scroll', function(){
+    var scrollY = window.pageYOffset;
+    if(scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+    if(scrollY > 400) backToTop.classList.add('show');
+    else backToTop.classList.remove('show');
+
+    // Hero parallax
+    if(heroBg && scrollY < window.innerHeight * 1.5){
+      heroBg.style.transform = 'scale(1.1) translateY(' + (scrollY * 0.35) + 'px)';
+    }
+    lastScroll = scrollY;
+  }, {passive:true});
+
+  backToTop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  /* ───── PARALLAX DIVIDERS ───── */
+  var parallaxImgs = document.querySelectorAll('.parallax-img');
+  function updateParallax(){
+    var scrollY = window.pageYOffset;
+    parallaxImgs.forEach(function(el){
+      var rect = el.parentElement.getBoundingClientRect();
+      if(rect.bottom > 0 && rect.top < window.innerHeight){
+        var offset = (rect.top / window.innerHeight - 0.5) * 80;
+        el.style.transform = 'translateY(' + offset + 'px)';
+      }
+    });
+  }
+  window.addEventListener('scroll', updateParallax, {passive:true});
+
+  /* ───── MOBILE NAV ───── */
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  var overlay = document.getElementById('mobileOverlay');
+
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    overlay.classList.remove('show');
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  hamburger.addEventListener('click', function(){
+    var isOpen = navLinks.classList.toggle('open');
+    overlay.classList.toggle('show');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  overlay.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* ───── SCROLL REVEAL ───── */
+  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ revealObserver.observe(el); });
+
+  /* ───── COUNTER ANIMATION ───── */
+  var counters = document.querySelectorAll('.counter');
+  var counterObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(function(c){ counterObserver.observe(c); });
+
+  function animateCounter(el){
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || '';
+    var duration = 1800;
+    var start = performance.now();
+    function step(now){
+      var progress = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ───── TYPING EFFECT ───── */
+  var subtitleEl = document.getElementById('heroSubtitle');
+  var phrases = [
+    'Suspended Ceilings · Wall Panels · Acoustic Solutions',
+    'Class A Fire Rated · NRC 0.85+ · Full Customisation',
+    'Exclusive GCC Partner — DEGO Ceiling & DAIKEN Corporation'
+  ];
+  var phraseIdx = 0, charIdx = 0, isDeleting = false;
+  function typeEffect(){
+    var current = phrases[phraseIdx];
+    if(!isDeleting){
+      subtitleEl.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+      if(charIdx === current.length){
+        isDeleting = true;
+        setTimeout(typeEffect, 2200);
+        return;
+      }
+      setTimeout(typeEffect, 50);
+    } else {
+      subtitleEl.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+      if(charIdx === 0){
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        setTimeout(typeEffect, 400);
+        return;
+      }
+      setTimeout(typeEffect, 28);
+    }
+  }
+  setTimeout(typeEffect, 700);
+
+  /* ───── PRODUCT TABS ───── */
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabBtns.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      tabPanels.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      var panel = document.getElementById('panel-' + btn.dataset.tab);
+      if(panel){
+        panel.classList.add('active');
+        // re-trigger reveals in the newly visible panel
+        panel.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el){
+          el.classList.remove('visible');
+          revealObserver.observe(el);
+        });
+      }
+    });
+  });
+
+  /* ───── PRODUCT CARD TILT (MOUSE FOLLOW) ───── */
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = 'translateY(-6px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function(){
+      card.style.transform = '';
+    });
+  });
+
+  /* ───── LOADER ───── */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      loader.classList.add('hidden');
+    }, 1500);
+  });
+
+  /* ───── CONTACT FORM (FORMSPREE) ───── */
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    var btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+  });
+
+})();
+</script>
+</body>
+</html>
