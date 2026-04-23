@@ -441,28 +441,23 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 .back-to-top:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,.45)}
 
 /* ───────── FLOATING CONTACT BUTTONS ───────── */
-.floating-buttons{position:fixed;bottom:100px;right:30px;display:flex;flex-direction:column;gap:12px;z-index:998}
+.floating-buttons{position:fixed;bottom:100px;left:30px;display:flex;flex-direction:column;gap:12px;z-index:998}
 .floating-btn{
   width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;font-size:1.3rem;
-  transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.2);text-decoration:none;
-  font-weight:600;
+  transition:all .3s cubic-bezier(.34,.1,.68,.55);box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none;
+  font-weight:600;animation:float-button 3s ease-in-out infinite;
 }
-.floating-btn.whatsapp{
-  background:#25D366;color:#fff;
-}
-.floating-btn.whatsapp:hover{
-  transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,.4);
+.floating-btn:hover{
+  transform:translateY(-8px) scale(1.15);box-shadow:0 12px 32px rgba(0,0,0,.35);
 }
 .floating-btn.call{
   background:linear-gradient(135deg,var(--accent),#d4b85a);color:var(--primary);
 }
-.floating-btn.call:hover{
-  transform:scale(1.1);box-shadow:0 8px 24px rgba(201,168,76,.45);
-}
+@keyframes float-button{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @media(max-width:768px){
-  .floating-buttons{bottom:80px;right:20px}
-  .floating-btn{width:48px;height:48px;font-size:1.1rem}
+  .floating-buttons{bottom:80px;left:20px}
+  .floating-btn{width:50px;height:50px;font-size:1.1rem}
 }
 
 /* ───────── MOBILE OVERLAY ───────── */
@@ -475,31 +470,37 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 /* ───────── LOADER ───────── */
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 20px var(--accent)) drop-shadow(0 0 40px rgba(201,168,76,.5))}50%{filter:drop-shadow(0 0 30px var(--accent)) drop-shadow(0 0 60px rgba(201,168,76,.8))}}
+@keyframes glow{0%{filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 20px rgba(201,168,76,.3))}50%{filter:drop-shadow(0 0 30px var(--accent)) drop-shadow(0 0 60px rgba(201,168,76,.8)) drop-shadow(0 0 100px rgba(201,168,76,.4))}100%{filter:drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 20px rgba(201,168,76,.3))}}
 @keyframes float-up{0%{transform:translateY(20px);opacity:0}50%{opacity:1}100%{transform:translateY(-20px);opacity:0}}
+@keyframes scale-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes shimmer{0%{background-position:0 0}100%{background-position:1000px 0}}
 .loader{
-  position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffffff,#f5f5f5);
+  position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffffff 0%,#f5f5f5 50%,#fafafa 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   z-index:2000;opacity:1;visibility:visible;transition:opacity .5s,visibility .5s;
 }
 .loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .loader-content{text-align:center;max-width:400px}
-.loader-inner{position:relative;width:280px;height:200px;margin:0 auto 40px;display:flex;align-items:center;justify-content:center}
-.loader-logo{width:200px;height:auto;animation:glow 2s ease-in-out infinite;filter:drop-shadow(0 0 20px var(--accent));position:relative;z-index:2}
+.loader-inner{position:relative;width:320px;height:240px;margin:0 auto 50px;display:flex;align-items:center;justify-content:center}
+.loader-logo{width:220px;height:auto;animation:glow 2.5s ease-in-out infinite,scale-pulse 3s ease-in-out infinite;filter:drop-shadow(0 0 20px var(--accent));position:relative;z-index:2}
 .loader-ring{
-  position:absolute;width:280px;height:280px;border:3px solid transparent;
-  border-top:3px solid var(--accent);border-right:3px solid var(--accent);
-  border-radius:50%;animation:spin 2s linear infinite;z-index:1
+  position:absolute;width:300px;height:300px;border:4px solid transparent;
+  border-top:4px solid var(--accent);border-right:4px solid var(--accent);
+  border-radius:50%;animation:spin 2s linear infinite;z-index:1;box-shadow:inset 0 0 40px rgba(201,168,76,.2);
 }
 .loader-ring::after{
-  content:'';position:absolute;width:220px;height:220px;border:2px solid transparent;
-  border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);
-  border-radius:50%;top:26px;left:26px;animation:spin 3s linear infinite reverse;
+  content:'';position:absolute;width:240px;height:240px;border:3px solid transparent;
+  border-bottom:3px solid var(--accent);border-left:3px solid var(--accent);
+  border-radius:50%;top:28px;left:28px;animation:spin 3s linear infinite reverse;box-shadow:inset 0 0 30px rgba(201,168,76,.15);
 }
-.loader-text{font-size:1.4rem;font-weight:700;color:var(--primary);margin-bottom:12px;letter-spacing:3px;font-family:'Playfair Display',serif}
-.loader-subtitle{font-size:.9rem;color:var(--secondary);letter-spacing:1px;text-transform:uppercase;font-weight:500;margin-bottom:30px}
-.loader-dots{display:flex;justify-content:center;gap:6px}
-.loader-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:float-up 1.4s ease-in-out infinite}
+.loader-ring::before{
+  content:'';position:absolute;width:360px;height:360px;border:2px dashed rgba(201,168,76,.3);
+  border-radius:50%;top:-30px;left:-30px;animation:spin 4s linear infinite;z-index:0;
+}
+.loader-text{font-size:1.6rem;font-weight:700;color:var(--primary);margin-bottom:12px;letter-spacing:3px;font-family:'Playfair Display',serif;animation:pulse 2s ease-in-out infinite;}
+.loader-subtitle{font-size:.95rem;color:var(--secondary);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:40px;}
+.loader-dots{display:flex;justify-content:center;gap:8px}
+.loader-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:float-up 1.4s ease-in-out infinite;box-shadow:0 0 10px rgba(201,168,76,.5);}
 .loader-dot:nth-child(1){animation-delay:0s}
 .loader-dot:nth-child(2){animation-delay:.2s}
 .loader-dot:nth-child(3){animation-delay:.4s}
@@ -1292,42 +1293,42 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="why-grid">
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-handshake"></i></div>
         <h4>Dual GCC Partnerships</h4>
         <p>Exclusive authorised partner of both DEGO Ceiling &amp; DAIKEN Corporation.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-hourglass-end"></i></div>
         <h4>40+ Years Combined Mfg.</h4>
         <p>Backed by decades of proven manufacturing expertise from two world-class factories.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-fire"></i></div>
         <h4>Class A Fire Safety</h4>
         <p>Every product achieves A1/A2 fire classification for maximum occupant protection.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-cube"></i></div>
         <h4>Full Solution Provider</h4>
         <p>From ceiling tiles to baffles, clouds, walls, and plaster — one partner for everything.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-chart-line"></i></div>
         <h4>Project Management</h4>
         <p>End-to-end technical support from specification through to installation and handover.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-shield"></i></div>
         <h4>15-Year Warranty</h4>
         <p>Industry-leading warranty demonstrating confidence in our product quality and durability.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-globe"></i></div>
         <h4>Global Track Record</h4>
         <p>Products installed across 25+ countries with consistent performance and satisfaction.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-leaf"></i></div>
         <h4>Sustainability Commitment</h4>
         <p>Recycled materials, recyclable products, and green building certification support.</p>
       </div>
@@ -1477,8 +1478,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 
 <!-- ════════ FLOATING CONTACT BUTTONS ════════ -->
 <div class="floating-buttons" id="floatingButtons">
-  <a href="https://wa.me/971505769237" class="floating-btn whatsapp" aria-label="WhatsApp us" title="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="tel:+971505769237" class="floating-btn call" aria-label="Call us" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+  <a href="tel:+971505769237" class="floating-btn call" aria-label="Call us" title="Call +971-505-769-237"><i class="fa-solid fa-phone"></i></a>
 </div>
 
 <!-- ════════ SCRIPTS ════════ -->
