@@ -327,7 +327,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
   transition:all .4s;border:1px solid #e8e8e8;
 }
 .app-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--accent)}
-.app-icon{font-size:2.4rem;margin-bottom:14px;display:block}
+.app-icon{\n  display:inline-flex;align-items:center;justify-content:center;width:70px;height:70px;\n  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(33,150,243,.08));border-radius:50%;\n  font-size:2rem;color:var(--accent);margin-bottom:16px;transition:all .3s ease;\n}\n.app-card:hover .app-icon{\n  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(33,150,243,.15));transform:scale(1.15) rotateZ(5deg);\n}
 .app-card h4{font-size:1.05rem;color:var(--primary);margin-bottom:8px}
 .app-card p{font-size:.85rem;color:#666;line-height:1.7}
 
@@ -346,9 +346,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 }
 .why-item:hover{background:rgba(201,168,76,.1);border-color:var(--accent);transform:translateY(-4px)}
 .why-check{
-  width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#d4b85a);
+  width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#d4b85a);
   display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
-  font-size:1.2rem;color:var(--primary);font-weight:700;
+  font-size:1.4rem;color:var(--primary);font-weight:700;transition:all .3s ease;
+}
+.why-item:hover .why-check{
+  transform:scale(1.1) rotateZ(-15deg);
 }
 .why-item h4{font-size:.95rem;margin-bottom:6px}
 .why-item p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6}
@@ -370,8 +373,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 .contact-info p{color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.8}
 .contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
 .contact-detail .icon{
-  width:42px;height:42px;border-radius:50%;background:rgba(201,168,76,.15);
-  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+  width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(33,150,243,.1));
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;
+  color:var(--accent);transition:all .3s ease;
+}
+.contact-detail:hover .icon{
+  background:linear-gradient(135deg,rgba(201,168,76,.3),rgba(33,150,243,.2));transform:scale(1.1) translateY(-4px);
 }
 .contact-detail .detail-text{font-size:.9rem;color:rgba(255,255,255,.8)}
 .contact-detail .detail-text strong{display:block;color:#fff;margin-bottom:2px}
@@ -1230,32 +1237,32 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="app-grid">
       <div class="app-card reveal">
-        <span class="app-icon">🏢</span>
+        <span class="app-icon"><i class="fa-solid fa-building"></i></span>
         <h4>Commercial Offices</h4>
         <p>Open-plan and private offices requiring speech privacy, noise control, and professional aesthetics.</p>
       </div>
       <div class="app-card reveal">
-        <span class="app-icon">🎓</span>
+        <span class="app-icon"><i class="fa-solid fa-graduation-cap"></i></span>
         <h4>Education Facilities</h4>
         <p>Classrooms, lecture halls, and libraries where clear communication and focus are essential.</p>
       </div>
       <div class="app-card reveal">
-        <span class="app-icon">🏥</span>
+        <span class="app-icon"><i class="fa-solid fa-hospital"></i></span>
         <h4>Healthcare</h4>
         <p>Hospitals, clinics, and wellness centres demanding hygiene, quiet, and patient comfort.</p>
       </div>
       <div class="app-card reveal">
-        <span class="app-icon">🏨</span>
+        <span class="app-icon"><i class="fa-solid fa-concierge-bell"></i></span>
         <h4>Retail &amp; Hospitality</h4>
         <p>Hotels, restaurants, and retail spaces where ambience and guest experience are paramount.</p>
       </div>
       <div class="app-card reveal">
-        <span class="app-icon">🎭</span>
+        <span class="app-icon"><i class="fa-solid fa-masks-theater"></i></span>
         <h4>Performing Arts / AV</h4>
         <p>Theatres, studios, and auditoriums requiring precision acoustic design and superior sound quality.</p>
       </div>
       <div class="app-card reveal">
-        <span class="app-icon">🏛️</span>
+        <span class="app-icon"><i class="fa-solid fa-landmark"></i></span>
         <h4>Government &amp; Public</h4>
         <p>Government buildings, transport hubs, and public facilities meeting strict fire and safety codes.</p>
       </div>
@@ -1273,42 +1280,42 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="why-grid">
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Dual GCC Partnerships</h4>
         <p>Exclusive authorised partner of both DEGO Ceiling &amp; DAIKEN Corporation.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>40+ Years Combined Mfg.</h4>
         <p>Backed by decades of proven manufacturing expertise from two world-class factories.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Class A Fire Safety</h4>
         <p>Every product achieves A1/A2 fire classification for maximum occupant protection.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Full Solution Provider</h4>
         <p>From ceiling tiles to baffles, clouds, walls, and plaster — one partner for everything.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Project Management</h4>
         <p>End-to-end technical support from specification through to installation and handover.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>15-Year Warranty</h4>
         <p>Industry-leading warranty demonstrating confidence in our product quality and durability.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Global Track Record</h4>
         <p>Products installed across 25+ countries with consistent performance and satisfaction.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check">✦</div>
+        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
         <h4>Sustainability Commitment</h4>
         <p>Recycled materials, recyclable products, and green building certification support.</p>
       </div>
@@ -1326,28 +1333,28 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         <p>Whether you need a single-room acoustic solution or a full-building specification, our team is ready to help.</p>
 
         <div class="contact-detail">
-          <div class="icon">📍</div>
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
           <div class="detail-text">
             <strong>Location</strong>
             FDBC3036, COMPAS Building, Al Shohada Road,<br>Ras Al Khaimah, UAE
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">✉️</div>
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
           <div class="detail-text">
             <strong>Email</strong>
             <a href="mailto:info@ace-acoustics.com" style="color:var(--accent)">info@ace-acoustics.com</a>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">📞</div>
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
           <div class="detail-text">
             <strong>Call</strong>
             <a href="tel:+971505769237" style="color:rgba(255,255,255,.7)">+971-505-769-237</a>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">💬</div>
+          <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
           <div class="detail-text">
             <strong>WhatsApp</strong>
             <a href="https://wa.me/971505769237" style="color:rgba(255,255,255,.7)" target="_blank">+971-505-769-237</a>
