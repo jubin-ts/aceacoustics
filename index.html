@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKu8zCwADMUWNQ0DPnqydZfghQc3xVjjaRu4mYk6kVfV5I8ggAQewo5V7e5Z5A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
 /* ───────── RESET & BASE ───────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -263,7 +263,17 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 }
 .pillar-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 12px 40px rgba(201,168,76,.12)}
 .pillar-card:hover::after{opacity:1}
-.pillar-icon{font-size:2.6rem;margin-bottom:18px;display:block;position:relative;z-index:1}
+.pillar-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:70px;height:70px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(33,150,243,.08));
+  font-size:1.6rem;color:var(--accent);margin-bottom:18px;
+  position:relative;z-index:1;transition:all .3s ease;
+}
+.pillar-card:hover .pillar-icon{
+  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(33,150,243,.15));
+  transform:scale(1.15) rotateZ(5deg);
+}
 .pillar-card h3{font-size:1.15rem;color:var(--primary);margin-bottom:10px;position:relative;z-index:1}
 .pillar-card p{font-size:.88rem;color:#666;position:relative;z-index:1;line-height:1.7}
 
@@ -327,7 +337,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
   transition:all .4s;border:1px solid #e8e8e8;
 }
 .app-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--accent)}
-.app-icon{\n  display:inline-flex;align-items:center;justify-content:center;width:70px;height:70px;\n  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(33,150,243,.08));border-radius:50%;\n  font-size:2rem;color:var(--accent);margin-bottom:16px;transition:all .3s ease;\n}\n.app-card:hover .app-icon{\n  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(33,150,243,.15));transform:scale(1.15) rotateZ(5deg);\n}
+.app-icon{
+  display:inline-flex;align-items:center;justify-content:center;width:70px;height:70px;
+  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(33,150,243,.08));border-radius:50%;
+  font-size:2rem;color:var(--accent);margin-bottom:16px;transition:all .3s ease;
+}
+.app-card:hover .app-icon{
+  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(33,150,243,.15));transform:scale(1.15) rotateZ(5deg);
+}
 .app-card h4{font-size:1.05rem;color:var(--primary);margin-bottom:8px}
 .app-card p{font-size:.85rem;color:#666;line-height:1.7}
 
@@ -593,7 +610,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 
     <div class="vm-grid">
       <div class="vm-card reveal">
-        <h3><i class="fa-solid fa-telescope"></i> Our Vision</h3>
+        <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
         <p>To be the leading supplier of acoustic ceiling and wall solutions in the GCC — delivering world-class quality, innovation, and sustainability in every interior environment we serve.</p>
       </div>
       <div class="vm-card reveal">
@@ -614,8 +631,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="partners-grid">
       <div class="partner-card reveal-left">
-        <h3>DEGO Ceiling</h3>
-        <p class="partner-origin">🇨🇳 China</p>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(33,150,243,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="fa-solid fa-building" style="font-size:1.4rem;color:var(--accent)"></i>
+          </div>
+          <div>
+            <h3 style="margin-bottom:0">DEGO Ceiling</h3>
+            <p class="partner-origin">🇨🇳 China</p>
+          </div>
+        </div>
         <ul>
           <li>Largest fiberglass wool ceiling manufacturer in China</li>
           <li>20+ years production experience, multiple patents</li>
@@ -626,8 +650,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </ul>
       </div>
       <div class="partner-card reveal-right">
-        <h3>DAIKEN Corporation</h3>
-        <p class="partner-origin">🇯🇵 Japan</p>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(33,150,243,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="fa-solid fa-flask" style="font-size:1.4rem;color:var(--accent)"></i>
+          </div>
+          <div>
+            <h3 style="margin-bottom:0">DAIKEN Corporation</h3>
+            <p class="partner-origin">🇯🇵 Japan</p>
+          </div>
+        </div>
         <ul>
           <li>40+ years acoustic R&amp;D expertise</li>
           <li>New 2024 acoustic experiment facility in Okayama</li>
@@ -662,32 +693,32 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="pillars-grid">
       <div class="pillar-card reveal">
-        <span class="pillar-icon">🔊</span>
+        <span class="pillar-icon"><i class="fa-solid fa-volume-high"></i></span>
         <h3>Superior Acoustics</h3>
         <p>NRC 0.85– 1.0 sound absorption eliminates reverberation, creating clear and comfortable environments.</p>
       </div>
       <div class="pillar-card reveal">
-        <span class="pillar-icon">🔥</span>
+        <span class="pillar-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
         <h3>Fire Rated Class A</h3>
         <p>All products achieve A1–A2 fire classification, meeting the most stringent building safety codes.</p>
       </div>
       <div class="pillar-card reveal">
-        <span class="pillar-icon">💧</span>
+        <span class="pillar-icon"><i class="fa-solid fa-droplet"></i></span>
         <h3>Moisture Resistance</h3>
         <p>100% relative humidity stable. Install confidently in environments from 0°C to 40°C.</p>
       </div>
       <div class="pillar-card reveal">
-        <span class="pillar-icon">🎨</span>
+        <span class="pillar-icon"><i class="fa-solid fa-palette"></i></span>
         <h3>High Customisation</h3>
         <p>Any shape, size, colour, and texture — tailored to your architectural vision.</p>
       </div>
       <div class="pillar-card reveal">
-        <span class="pillar-icon">🌿</span>
+        <span class="pillar-icon"><i class="fa-solid fa-heart-pulse"></i></span>
         <h3>Wellbeing &amp; Health</h3>
         <p>VOC-free, bacteria-resistant, mould-proof materials for healthier indoor environments.</p>
       </div>
       <div class="pillar-card reveal">
-        <span class="pillar-icon">♻️</span>
+        <span class="pillar-icon"><i class="fa-solid fa-recycle"></i></span>
         <h3>Sustainability</h3>
         <p>High recycled content and fully recyclable products supporting green building certifications.</p>
       </div>
@@ -748,7 +779,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p10_4.jpeg" alt="Degofon D24 Full Concealed ceiling system" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p10_1.png" alt="Degofon D24 Full Concealed ceiling system" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -866,7 +897,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       <div class="products-grid">
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p23_1.jpeg" alt="DegoSilent Ultra acoustic plaster system" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p23_0.jpeg" alt="DegoSilent Ultra acoustic plaster system" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -896,7 +927,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p25_0.jpeg" alt="DegoSilent Pro rigid panel system" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p28_0.jpeg" alt="DegoSilent Pro rigid panel system" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -932,7 +963,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       <div class="products-grid">
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p14_0.jpeg" alt="Decoacoustic Square and Rectangle Clouds" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p32_0.jpeg" alt="Decoacoustic Square and Rectangle Clouds" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -948,7 +979,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p16_0.jpeg" alt="Decoacoustic Circle Clouds" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p39_0.jpeg" alt="Decoacoustic Circle Clouds" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -963,7 +994,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p17_0.jpeg" alt="Decoacoustic Hexagon Clouds" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p26_0.jpeg" alt="Decoacoustic Hexagon Clouds" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -978,7 +1009,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p19_0.jpeg" alt="Decoacoustic Acoustic Baffles" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p45_0.jpeg" alt="Decoacoustic Acoustic Baffles" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -993,7 +1024,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
         </div>
         <div class="product-card reveal">
           <div class="product-card-img">
-            <img src="assets/images/dego/dego_p28_0.jpeg" alt="Decoacoustic Fabric Wrap Wall Panels" loading="lazy" width="400" height="300">
+            <img src="assets/images/dego/dego_p29_0.png" alt="Decoacoustic Fabric Wrap Wall Panels" loading="lazy" width="400" height="300">
             <div class="img-overlay"></div>
           </div>
           <div class="product-card-body">
@@ -1033,7 +1064,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     <div class="daiken-grid">
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p10_0.jpeg" alt="EXCELTONE MS Smooth mineral fiber ceiling" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p1_1.jpeg" alt="EXCELTONE MS Smooth mineral fiber ceiling" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1049,7 +1080,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p14_0.jpeg" alt="EXCELTONE MC Constellation ceiling design" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p16_0.jpeg" alt="EXCELTONE MC Constellation ceiling design" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1064,7 +1095,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p16_0.jpeg" alt="EXCELTONE MD Travertine-Delica ceiling" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p18_0.jpeg" alt="EXCELTONE MD Travertine-Delica ceiling" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1079,7 +1110,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p18_0.jpeg" alt="EXCELTONE MN New NDF non-directional fissured" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p20_0.jpeg" alt="EXCELTONE MN New NDF non-directional fissured" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1094,7 +1125,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p20_0.jpeg" alt="EXCELTONE MA Astral non-perforated ceiling" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p5_7.jpeg" alt="EXCELTONE MA Astral non-perforated ceiling" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1154,7 +1185,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p34_0.jpeg" alt="EXCELTONE DL Series double layer ceiling" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p14_0.jpeg" alt="EXCELTONE DL Series double layer ceiling" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1170,7 +1201,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p36_0.jpeg" alt="EXCELTONE Metallic Colour Ceilings" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p7_0.jpeg" alt="EXCELTONE Metallic Colour Ceilings" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1185,7 +1216,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p44_0.jpeg" alt="Daiken Ototen Acoustic Ceiling" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p8_4.jpeg" alt="Daiken Ototen Acoustic Ceiling" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1200,7 +1231,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       </div>
       <div class="product-card reveal">
         <div class="product-card-img">
-          <img src="assets/images/daiken/daiken_p48_0.jpeg" alt="Daiken Otokabe Acoustic Wall Panels" loading="lazy" width="400" height="300">
+          <img src="assets/images/daiken/daiken_p10_0.jpeg" alt="Daiken Otokabe Acoustic Wall Panels" loading="lazy" width="400" height="300">
           <div class="img-overlay"></div>
         </div>
         <div class="product-card-body">
@@ -1280,42 +1311,42 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     </div>
     <div class="why-grid">
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-handshake"></i></div>
         <h4>Dual GCC Partnerships</h4>
         <p>Exclusive authorised partner of both DEGO Ceiling &amp; DAIKEN Corporation.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-industry"></i></div>
         <h4>40+ Years Combined Mfg.</h4>
         <p>Backed by decades of proven manufacturing expertise from two world-class factories.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-fire-flame-curved"></i></div>
         <h4>Class A Fire Safety</h4>
         <p>Every product achieves A1/A2 fire classification for maximum occupant protection.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-layer-group"></i></div>
         <h4>Full Solution Provider</h4>
         <p>From ceiling tiles to baffles, clouds, walls, and plaster — one partner for everything.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-clipboard-check"></i></div>
         <h4>Project Management</h4>
         <p>End-to-end technical support from specification through to installation and handover.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-shield-halved"></i></div>
         <h4>15-Year Warranty</h4>
         <p>Industry-leading warranty demonstrating confidence in our product quality and durability.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-globe"></i></div>
         <h4>Global Track Record</h4>
         <p>Products installed across 25+ countries with consistent performance and satisfaction.</p>
       </div>
       <div class="why-item reveal">
-        <div class="why-check"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="why-check"><i class="fa-solid fa-leaf"></i></div>
         <h4>Sustainability Commitment</h4>
         <p>Recycled materials, recyclable products, and green building certification support.</p>
       </div>
@@ -1442,8 +1473,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:info@aceacoustics.com">info@aceacoustics.com</a></li>
-          <li><a href="mailto:tech@aceacoustics.com">tech@aceacoustics.com</a></li>
+          <li><a href="mailto:info@ace-acoustics.com">info@ace-acoustics.com</a></li>
           <li><a href="tel:+971505769237">+971-505769237</a></li>
           <li>Ras Al Khaimah, UAE</li>
         </ul>
@@ -1452,16 +1482,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
     <div class="footer-bottom">
       <p>&copy; 2025 ACEMACAN FZ LLC — ACE ACOUSTICS®. All rights reserved.</p>
       <div class="footer-socials" aria-label="Social media links">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="Email" title="Email us">✉</a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="mailto:info@aceacoustics.com" aria-label="Email" title="Email us"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
 <!-- ════════ BACK TO TOP ════════ -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
 
 <!-- ════════ FLOATING CONTACT BUTTONS ════════ -->
 <div class="floating-buttons" id="floatingButtons">
