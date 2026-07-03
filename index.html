@@ -490,41 +490,120 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
 .mobile-overlay.show{opacity:1;visibility:visible}
 
 /* ───────── LOADER ───────── */
-@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-@keyframes glow{0%{filter:drop-shadow(0 0 15px var(--accent))}50%{filter:drop-shadow(0 0 40px var(--accent)) drop-shadow(0 0 60px rgba(201,168,76,.5))}100%{filter:drop-shadow(0 0 15px var(--accent))}}
-@keyframes bounce-smooth{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-.loader{
-  position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ffffff,#f5f5f5);
-  display:flex;align-items:center;justify-content:center;
-  z-index:2000;opacity:1;visibility:visible;transition:opacity .5s,visibility .5s;
+@keyframes aa-wave{
+  0%{transform:translate(-50%,-50%) scale(.3);opacity:.9}
+  100%{transform:translate(-50%,-50%) scale(2.4);opacity:0}
 }
-.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loader-content{text-align:center}
-.loader-inner{position:relative;width:300px;height:300px;display:flex;align-items:center;justify-content:center}
-.loader-logo{width:240px;height:auto;animation:bounce-smooth 2s ease-in-out infinite,glow 2.5s ease-in-out infinite;position:relative;z-index:2;filter:drop-shadow(0 0 20px var(--accent))}
-.loader-ring{display:none}
-.loader-text{display:none}
-.loader-subtitle{display:none}
-.loader-dots{display:none}
+@keyframes aa-logo-in{
+  0%{opacity:0;transform:scale(.85)}
+  100%{opacity:1;transform:scale(1)}
+}
+@keyframes aa-breathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.04)}
+}
+@keyframes aa-shimmer{
+  0%{background-position:-200% 0}
+  100%{background-position:200% 0}
+}
+@keyframes aa-bar{
+  0%{left:-40%}
+  100%{left:100%}
+}
+@keyframes aa-fade-in{
+  0%{opacity:0;transform:translateY(8px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+.loader{
+  position:fixed;inset:0;
+  background:radial-gradient(circle at center,#12233d 0%,var(--primary) 60%,#060e1a 100%);
+  display:flex;align-items:center;justify-content:center;
+  z-index:2000;opacity:1;visibility:visible;
+  transition:opacity .6s ease,visibility .6s ease,transform .6s ease;
+}
+.loader.hidden{opacity:0;visibility:hidden;transform:scale(1.05);pointer-events:none}
+.loader-content{position:relative;text-align:center;padding:0 24px}
+.loader-waves{
+  position:absolute;top:50%;left:50%;
+  width:220px;height:220px;pointer-events:none;
+}
+.loader-wave{
+  position:absolute;top:50%;left:50%;
+  width:220px;height:220px;border-radius:50%;
+  border:2px solid var(--accent);
+  transform:translate(-50%,-50%) scale(.3);
+  opacity:0;
+  animation:aa-wave 2.8s cubic-bezier(.2,.7,.3,1) infinite;
+}
+.loader-wave:nth-child(2){animation-delay:.9s;border-width:1.5px}
+.loader-wave:nth-child(3){animation-delay:1.8s;border-width:1px}
+.loader-logo-wrap{
+  position:relative;display:inline-block;z-index:2;
+  animation:aa-logo-in .7s cubic-bezier(.4,0,.2,1) both,aa-breathe 3s ease-in-out 1s infinite;
+}
+.loader-logo{
+  width:clamp(160px,32vw,220px);height:auto;
+  filter:brightness(0) invert(1) drop-shadow(0 0 24px rgba(201,168,76,.35));
+  display:block;
+}
+.loader-logo-wrap::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(201,168,76,.35) 50%,transparent 70%);
+  background-size:200% 100%;
+  mix-blend-mode:screen;opacity:.85;
+  animation:aa-shimmer 3s ease-in-out infinite;
+}
+.loader-brand{
+  margin-top:36px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.4vw,1.5rem);
+  font-weight:600;letter-spacing:6px;
+  color:#fff;
+  animation:aa-fade-in .8s ease .4s both;
+}
+.loader-tagline{
+  margin-top:8px;
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(201,168,76,.75);
+  animation:aa-fade-in .8s ease .6s both;
+}
+.loader-progress{
+  position:relative;
+  width:200px;height:2px;margin:28px auto 0;
+  background:rgba(255,255,255,.08);
+  border-radius:2px;overflow:hidden;
+  animation:aa-fade-in .8s ease .8s both;
+}
+.loader-progress::before{
+  content:'';position:absolute;top:0;left:-40%;
+  width:40%;height:100%;
+  background:linear-gradient(90deg,transparent,var(--accent),#d4b85a,transparent);
+  border-radius:2px;
+  animation:aa-bar 1.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@media(prefers-reduced-motion:reduce){
+  .loader-wave,.loader-logo-wrap,.loader-logo-wrap::after,.loader-progress::before{animation:none!important}
+  .loader-logo-wrap::after{display:none}
+}
 </style>
 </head>
 <body>
 
 <!-- ════════ LOADER ════════ -->
-<div class="loader" id="loader">
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading ACE ACOUSTICS website">
   <div class="loader-content">
-    <div class="loader-inner">
+    <div class="loader-waves" aria-hidden="true">
+      <span class="loader-wave"></span>
+      <span class="loader-wave"></span>
+      <span class="loader-wave"></span>
+    </div>
+    <div class="loader-logo-wrap">
       <img src="assets/images/aceacousticslogofinal.png" alt="ACE ACOUSTICS Logo" class="loader-logo">
-      <div class="loader-ring"></div>
     </div>
-    <div class="loader-text">ACE ACOUSTICS®</div>
-    <div class="loader-subtitle">Premium Acoustic Solutions</div>
-    <div class="loader-dots">
-      <div class="loader-dot"></div>
-      <div class="loader-dot"></div>
-      <div class="loader-dot"></div>
-    </div>
+    <div class="loader-brand">ACE ACOUSTICS<span style="font-size:.6em;vertical-align:super">®</span></div>
+    <div class="loader-tagline">Premium Acoustic Solutions</div>
+    <div class="loader-progress" aria-hidden="true"></div>
   </div>
 </div>
 
